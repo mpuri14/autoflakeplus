@@ -9,8 +9,6 @@ import filecmp
 
 dir_src = os.getcwd()
 
-"""This function makes a backup of python files before running autoflake"""
-
 
 def navigate_and_copy(src):
     f = open("log_files_copy.txt", "w")
@@ -26,9 +24,6 @@ def navigate_and_copy(src):
     f.close()
 
 
-"""This function runs autoflake on directories and subdirectories"""
-
-
 def autoflake_run():
     try:
         subprocess.call(
@@ -37,9 +32,6 @@ def autoflake_run():
         print("Autoflake process was run on all subdirectories ")
     except:
         print('Path file error. Please make sure directory exists.')
-
-
-"""This function does a cleanup of unnecessary backups"""
 
 
 def file_compare(src):
@@ -56,7 +48,3 @@ def file_compare(src):
                 os.remove(dst)
     f.close()
 
-
-navigate_and_copy(dir_src)
-autoflake_run()
-file_compare(dir_src)
